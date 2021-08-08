@@ -1,0 +1,24 @@
+{
+  "name": "payment-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sclausson/payment-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sclausson/payment-service/issues"
+  },
+  "homepage": "https://github.com/sclausson/payment-service#readme",
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "rosie": "^2.1.0"
+  }
+}

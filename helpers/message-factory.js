@@ -17,31 +17,31 @@ const transactionReference = faker.datatype.uuid()
 
 //define the header
 factory.define('header')
-	.attrs({
-		businessUnitId: "SE045",
-		checkoutId: "006",
-		exchangeIdentification: "string",
-		sessionId: "ac44232d-1932-421f-a66a-dd0f140b569d",
-		tenantId: "tenant1"	
-	})
+    .attrs({
+        businessUnitId: "SE045",
+        checkoutId: "006",
+        exchangeIdentification: "string",
+        sessionId: "ac44232d-1932-421f-a66a-dd0f140b569d",
+        tenantId: "tenant1" 
+    })
 
 //define the paymentRequest
 factory.define('paymentRequest')
-	.attr('amount', {
-			currency,
-			cashBack: 0,
-			paidAmount: 0,
-			total: 0
-		})
-	.attrs({
-		attendanceContex: 'ATTD',
-		attendantLanguage: 'en',
-		saleReferenceId: 'string',
-		saleTransactionId : {
-			transactionDateTime,
-			transactionReference
-		}
-	})
+    .attr('amount', {
+        currency,
+        cashBack: 0,
+        paidAmount: 0,
+        total: 0
+    })
+    .attrs({
+        attendanceContex: 'ATTD',
+        attendantLanguage: 'en',
+        saleReferenceId: 'string',
+        saleTransactionId : {
+            transactionDateTime,
+            transactionReference
+        }
+    })
 
 
 //build the header and the paymentRequest and concatenate them in the rawData object
@@ -49,8 +49,8 @@ const header = factory.build('header')
 //pass in options in the paymentRequest to override the defaults
 const paymentRequest = factory.build('paymentRequest', { amount: {currency: 'EUR', total: 100}, attendantLanguage: 'fr'})
 const rawData = JSON.stringify({
-	header,
-	paymentRequest
+    header,
+    paymentRequest
 })
 
 //pubsub message data must be base64 encoded
@@ -58,13 +58,13 @@ const data = Buffer.from(rawData).toString('base64')
 
 //define the message that will be published to the pubsub payment request topic
 factory.define('message')
-	.attrs({
-		data,
-		attributes: {
-			'Correlation-Id': correlationId,
-			'Tenant-Id': tenantId
-		}
-	})
+    .attrs({
+        data,
+        attributes: {
+            'Correlation-Id': correlationId,
+            'Tenant-Id': tenantId
+        }
+    })
 
 
 //build the message
@@ -72,6 +72,6 @@ const message = factory.build('message')
 
 //JSON string including the subscription and the message
 console.log(JSON.stringify({
-	subscription,
-	message
+    subscription,
+    message
 }))

@@ -1,0 +1,10 @@
+{
+	"subscription": "test-adyen-payment-request-subscription",
+	"message": {
+		"data": "eyJoZWFkZXIiOnsiYnVzaW5lc3NVbml0SWQiOiJTRTA0NSIsImNoZWNrb3V0SWQiOiIwMDYiLCJleGNoYW5nZUlkZW50aWZpY2F0aW9uIjoic3RyaW5nIiwic2Vzc2lvbklkIjoiYWM0NDIzMmQtMTkzMi00MjFmLWE2NmEtZGQwZjE0MGI1NjlkIiwidGVuYW50SWQiOiJ0ZW5hbnQxIn0sInBheW1lbnRSZXF1ZXN0Ijp7ImFtb3VudCI6eyJjdXJyZW5jeSI6IkVVUiIsInRvdGFsIjoxMDB9LCJhdHRlbmRhbnRMYW5ndWFnZSI6ImZyIiwiYXR0ZW5kYW5jZUNvbnRleCI6IkFUVEQiLCJzYWxlUmVmZXJlbmNlSWQiOiJzdHJpbmciLCJzYWxlVHJhbnNhY3Rpb25JZCI6eyJ0cmFuc2FjdGlvbkRhdGVUaW1lIjoiMjAyMS0wOC0wOFQxODoyMDo1Ny4yNDRaIiwidHJhbnNhY3Rpb25SZWZlcmVuY2UiOiJhNjMyMTUwOC1jMGE2LTQ0MDQtOTk5Yy03OTA3ZGI5OTMxOWEifX19",
+		"attributes": {
+			"Correlation-Id": "ac44232d-1932-421f-a66a-dd0f140b569d",
+			"Tenant-Id": "tenant1"
+		}
+	}
+}
