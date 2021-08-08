@@ -43,35 +43,30 @@ factory.define('paymentRequest')
         }
     })
 
-
-//build the header and the paymentRequest and concatenate them in the rawData object
-const header = factory.build('header')
-//pass in options in the paymentRequest to override the defaults
-const paymentRequest = factory.build('paymentRequest', { amount: {currency: 'EUR', total: 100}, attendantLanguage: 'fr'})
-const rawData = JSON.stringify({
-    header,
-    paymentRequest
-})
-
-//pubsub message data must be base64 encoded
-const data = Buffer.from(rawData).toString('base64')
-
 //define the message that will be published to the pubsub payment request topic
 factory.define('message')
     .attrs({
-        data,
+        data: {},
         attributes: {
             'Correlation-Id': correlationId,
             'Tenant-Id': tenantId
         }
     })
 
+const createMessage = (payload) => {
+  const header = factory.build('header');
+  const data = Buffer.from(payload).toString('base64');
+  const message = factory.build('message', { data });
+  return message;
+};
 
-//build the message
-const message = factory.build('message')
+const createPaymentRequest = (attrs) => {
+  const paymentRequest = factory.build('paymentRequest', attrs);
+  const header = factory.build('header');
+  return createMessage(JSON.stringify({ header, paymentRequest }));
+}
 
-//JSON string including the subscription and the message
-console.log(JSON.stringify({
-    subscription,
-    message
-}))
+
+module.exports = {
+  createPaymentRequest,
+};
