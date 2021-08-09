@@ -57,7 +57,10 @@ const createMessage = (payload) => {
   const header = factory.build('header');
   const data = Buffer.from(payload).toString('base64');
   const message = factory.build('message', { data });
-  return message;
+  return { 
+    subscription,
+    message
+    }
 };
 
 const createPaymentRequest = (attrs) => {
