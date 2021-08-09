@@ -29,7 +29,7 @@ const requestBody = JSON.stringify({
                     "Currency": data.paymentRequest.amount.currency,
                     "RequestedAmount": data.paymentRequest.amount.total,
                     "CashBackAmount": data.paymentRequest.amount.cashBack,
-                    "TipAmount": data.paymentRequest.amount.gratuity
+                    "PaidAmount": data.paymentRequest.amount.paidAmount
                 }
             }
         }
